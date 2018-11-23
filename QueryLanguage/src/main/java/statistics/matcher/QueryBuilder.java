@@ -33,6 +33,10 @@ public class QueryBuilder {
         return new QueryBuilder(new And(build, new HasFewerThan(value, category)));
     }
     
+    public QueryBuilder oneOf(Matcher m1, Matcher m2) {
+        return new QueryBuilder(new And(build, new Or(m1, m2)));
+    }
+    
     public Matcher build() {
         return build;
     }
